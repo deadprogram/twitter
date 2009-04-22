@@ -6,8 +6,8 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name              = "twitter"
     gem.summary           = %Q{wrapper for the twitter api (oauth only)}
-    gem.email             = "nunemaker@gmail.com"
-    gem.homepage          = "http://github.com/jnunemaker/twitter"
+    gem.email             = "ron.evans@gmail.com"
+    gem.homepage          = "http://github.com/deadprogrammer/twitter"
     gem.authors           = ["John Nunemaker"]
     gem.rubyforge_project = "twitter"
     gem.files             = FileList["[A-Z]*", "{examples,lib,test}/**/*"]
@@ -17,7 +17,7 @@ begin
     gem.add_dependency('httparty', '0.4.2')
     
     gem.add_development_dependency('thoughtbot-shoulda')
-    gem.add_development_dependency('jeremymcanally-matchy')
+    gem.add_development_dependency('jnunemaker-matchy')
     gem.add_development_dependency('mocha')
     gem.add_development_dependency('fakeweb')
     gem.add_development_dependency('mash')
