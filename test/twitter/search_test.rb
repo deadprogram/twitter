@@ -92,6 +92,10 @@ class SearchTest < Test::Unit::TestCase
       @search.query[:geocode].should == '40.757929,-73.985506,25mi'
     end
 
+    should "should be able to initialize with a user-agent" do
+      Twitter::Search.new('httparty', 'My Twitter App').user_agent.should == "My Twitter App"
+    end
+
     context "fetching" do
       setup do
         stub_get('http://search.twitter.com:80/search.json?q=%40jnunemaker', 'search.json')
