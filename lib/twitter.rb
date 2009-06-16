@@ -1,13 +1,13 @@
 require 'forwardable'
 require 'rubygems'
 
-gem 'oauth', '0.3.2'
+gem 'oauth', '0.3.4'
 require 'oauth'
 
 gem 'mash', '0.0.3'
 require 'mash'
 
-gem 'httparty', '0.4.2'
+gem 'httparty', '0.4.3'
 require 'httparty'
 
 module Twitter
@@ -53,12 +53,20 @@ module Twitter
   end
 end
 
-directory = File.dirname(__FILE__)
-$:.unshift(directory) unless $:.include?(directory)
+directory = File.expand_path(File.dirname(__FILE__))
 
+<<<<<<< HEAD:lib/twitter.rb
 require 'twitter/oauth'
 require 'twitter/httpauth'
 require 'twitter/request'
 require 'twitter/base'
 require 'twitter/search'
 require 'twitter/trends'
+=======
+require File.join(directory, 'twitter', 'oauth')
+require File.join(directory, 'twitter', 'httpauth')
+require File.join(directory, 'twitter', 'request')
+require File.join(directory, 'twitter', 'base')
+require File.join(directory, 'twitter', 'search')
+require File.join(directory, 'twitter', 'trends')
+>>>>>>> 74f2160bc0a09d3363d79fd3d35a20f08e648a56:lib/twitter.rb
