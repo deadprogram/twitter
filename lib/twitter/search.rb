@@ -3,11 +3,11 @@ module Twitter
     include HTTParty
     include Enumerable
     
-    attr_reader :result, :query, :user_agent
+    attr_reader :result, :query
     
-    def initialize(q=nil, agent="Twitter Ruby Gem")
+    def initialize(q=nil)
       clear
-      @user_agent = agent
+      @user_agent = "Twitter Ruby Gem"
       containing(q) if q && q.strip != ''
     end
     
@@ -86,7 +86,6 @@ module Twitter
       @fetch = nil
       @query = {}
       @query[:q] = []
-      @user_agent = "Twitter Ruby Gem"
       self
     end
     
@@ -103,6 +102,15 @@ module Twitter
     
     def each
       fetch()['results'].each { |r| yield r }
+    end
+    
+    def user_agent(agent=nil)
+      if agent.nil?
+        @user_agent
+      else
+        @user_agent = agent
+        self
+      end
     end
   end
 end

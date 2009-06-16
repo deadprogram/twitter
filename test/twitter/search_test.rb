@@ -92,8 +92,12 @@ class SearchTest < Test::Unit::TestCase
       @search.query[:geocode].should == '40.757929,-73.985506,25mi'
     end
 
-    should "should be able to initialize with a user-agent" do
-      Twitter::Search.new('httparty', 'My Twitter App').user_agent.should == "My Twitter App"
+    should "should be able to use with default user-agent" do
+      Twitter::Search.new('httparty').user_agent.should == "Twitter Ruby Gem"
+    end
+
+    should "should be able to have custom user-agent" do
+      Twitter::Search.new('httparty').user_agent('My Twitter App').user_agent.should == "My Twitter App"
     end
 
     context "fetching" do
