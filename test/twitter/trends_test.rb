@@ -1,25 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TrendsTest < Test::Unit::TestCase
-<<<<<<< HEAD:test/twitter/trends_test.rb
-  context "fetching" do
-    setup do
-      stub_get('http://search.twitter.com:80/trends.json', 'trends.json')
-      @trends = Twitter::Trends.new
-      @response = @trends.fetch
-    end
-  
-    should "should return results" do
-      @response.trends.size.should == 10
-    end
-  
-    should "should be able to iterate over results" do
-      @trends.respond_to?(:each).should be(true)
-    end
-  
-  end
-  
-=======
   include Twitter
   
   context "Getting current trends" do
@@ -111,5 +92,4 @@ class TrendsTest < Test::Unit::TestCase
       trends[0].query.should == 'TGIF'
     end
   end
->>>>>>> 74f2160bc0a09d3363d79fd3d35a20f08e648a56:test/twitter/trends_test.rb
 end

@@ -55,18 +55,9 @@ end
 
 directory = File.expand_path(File.dirname(__FILE__))
 
-<<<<<<< HEAD:lib/twitter.rb
-require 'twitter/oauth'
-require 'twitter/httpauth'
-require 'twitter/request'
-require 'twitter/base'
-require 'twitter/search'
-require 'twitter/trends'
-=======
 require File.join(directory, 'twitter', 'oauth')
 require File.join(directory, 'twitter', 'httpauth')
 require File.join(directory, 'twitter', 'request')
 require File.join(directory, 'twitter', 'base')
 require File.join(directory, 'twitter', 'search')
 require File.join(directory, 'twitter', 'trends')
->>>>>>> 74f2160bc0a09d3363d79fd3d35a20f08e648a56:lib/twitter.rb

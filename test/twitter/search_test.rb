@@ -44,37 +44,37 @@ class SearchTest < Test::Unit::TestCase
 
     should "should be able to specify the language" do
       @search.lang('en')
-      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:lang => 'en', :q => ''}, :format => :json).returns({'foo' => 'bar'})
+      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:lang => 'en', :q => ''}, :format => :json, :headers => {'user-agent' => 'Twitter Ruby Gem'}).returns({'foo' => 'bar'})
       @search.fetch()
     end
 
     should "should be able to specify the number of results per page" do
       @search.per_page(25)
-      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:rpp => 25, :q => ''}, :format => :json).returns({'foo' => 'bar'})
+      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:rpp => 25, :q => ''}, :format => :json, :headers => {'user-agent' => 'Twitter Ruby Gem'}).returns({'foo' => 'bar'})
       @search.fetch()
     end
 
     should "should be able to specify the page number" do
       @search.page(20)
-      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:page => 20, :q => ''}, :format => :json).returns({'foo' => 'bar'})
+      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:page => 20, :q => ''}, :format => :json, :headers => {'user-agent' => 'Twitter Ruby Gem'}).returns({'foo' => 'bar'})
       @search.fetch()
     end
 
     should "should be able to specify only returning results greater than an id" do
       @search.since(1234)
-      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:since_id => 1234, :q => ''}, :format => :json).returns({'foo' => 'bar'})
+      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:since_id => 1234, :q => ''}, :format => :json, :headers => {'user-agent' => 'Twitter Ruby Gem'}).returns({'foo' => 'bar'})
       @search.fetch()
     end
 
     should "should be able to specify geo coordinates" do
       @search.geocode('40.757929', '-73.985506', '25mi')
-      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:geocode => '40.757929,-73.985506,25mi', :q => ''}, :format => :json).returns({'foo' => 'bar'})
+      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:geocode => '40.757929,-73.985506,25mi', :q => ''}, :format => :json, :headers => {'user-agent' => 'Twitter Ruby Gem'}).returns({'foo' => 'bar'})
       @search.fetch()
     end
 
     should "should be able to specify max id" do
       @search.max(1234)
-      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:max_id => 1234, :q => ''}, :format => :json).returns({'foo' => 'bar'})
+      @search.class.expects(:get).with('http://search.twitter.com/search.json', :query => {:max_id => 1234, :q => ''}, :format => :json, :headers => {'user-agent' => 'Twitter Ruby Gem'}).returns({'foo' => 'bar'})
       @search.fetch()
     end
 
