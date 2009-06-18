@@ -5,9 +5,9 @@ module Twitter
     
     attr_reader :result, :query
     
-    def initialize(q=nil)
+    def initialize(q=nil, options={})
       clear
-      @user_agent = "Twitter Ruby Gem"
+      @user_agent = options[:user_agent] ? options[:user_agent] : "Twitter Ruby Gem"
       containing(q) if q && q.strip != ''
     end
     

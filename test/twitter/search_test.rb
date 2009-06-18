@@ -100,6 +100,10 @@ class SearchTest < Test::Unit::TestCase
       Twitter::Search.new('httparty').user_agent('My Twitter App').user_agent.should == "My Twitter App"
     end
 
+    should "should be able to to initialize custom user-agent with options hash in constructor" do
+      Twitter::Search.new('httparty', :user_agent => 'My Twitter App').user_agent.should == "My Twitter App"
+    end
+
     context "fetching" do
       setup do
         stub_get('http://search.twitter.com:80/search.json?q=%40jnunemaker', 'search.json')
