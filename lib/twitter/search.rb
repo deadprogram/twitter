@@ -3,11 +3,13 @@ module Twitter
     include HTTParty
     include Enumerable
     
+    headers 'Accept' => 'text/json'
+    
     attr_reader :result, :query
     
-    def initialize(q=nil, options={})
+    def initialize(q=nil, o={})
       clear
-      @user_agent = options[:user_agent] ? options[:user_agent] : "Twitter Ruby Gem"
+      @user_agent = o[:user_agent] ? o[:user_agent] : "Twitter Ruby Gem"
       containing(q) if q && q.strip != ''
     end
     
@@ -93,7 +95,7 @@ module Twitter
       if @fetch.nil? || force
         query = @query.dup
         query[:q] = query[:q].join(' ')
-        response = self.class.get('http://search.twitter.com/search.json', :query => query, :format => :json, :headers => {'user-agent' => @user_agent})
+        response = self.class.get('http://search.twitter.com/search.json', {:query => query, :format => :json, :headers => {'user-agent' => @user_agent}})
         @fetch = Mash.new(response)
       end
       
